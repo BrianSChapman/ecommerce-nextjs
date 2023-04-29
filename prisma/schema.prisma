@@ -15,8 +15,8 @@ datasource db {
 model Category {
   id          String        @id @default(cuid())
   name        String        @unique
-  createdAt   Datetime      @default(now())
-  products    Product[]     @dfault(now())
+  createdAt   DateTime      @default(now())
+  products    Product[]     
 }
 
 model Product {
@@ -26,7 +26,7 @@ model Product {
   price           String
   quantity        String
   image           String
-  createdAt       Datetime    @default(now())
+  createdAt       DateTime    @default(now())
   category        Category?   @relation(fields: [CategoryId], references: [id])
   CategoryId      String?
 }
