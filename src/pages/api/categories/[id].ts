@@ -28,7 +28,7 @@ const getSingleCategory = async (
                         take: 12,
                         skip: 1,
                         cursor: {
-                            id: cursorId as string;
+                            id: cursorId as string,
                         },
                         select: {
                             id: true,
@@ -45,14 +45,19 @@ const getSingleCategory = async (
             if (!categoriesData) {
                 return res.status(404).json({ message: `Category not found` });
             }
+
             let hasMore = true;
             if (categoriesData.products.length === 0) {
                 hasMore = false;
             }
-            return res.status(200).json({ category: { ... categoriesData, hasMore } });
+
+            return res
+                .status(200)
+                .json({ category: { ...categoriesData, hasMore } });
         }
-        const categoriesData = await prisma.category.findUnique({ 
-            where:{ 
+
+        const categoriesData = await prisma.category.findUnique({
+            where: {
                 id,
             },
             select: {
@@ -60,7 +65,7 @@ const getSingleCategory = async (
                 name: true,
                 products: {
                     orderBy: {
-                        createdAt: "desc"
+                        createdAt: "desc",
                     },
                     take: 12,
                     select: {
@@ -75,16 +80,20 @@ const getSingleCategory = async (
             },
         });
         if (!categoriesData) {
-            res.status(404).json({ message: `Category not found` });
+            return res.status(404).json({ message: `Category not found` });
         }
+
         let hasMore = true;
-        if (categoriesData?.products.length ===0 ) {
+        if (categoriesData.products.length === 0) {
             hasMore = false;
         }
-        return res.status(200).json({ category: { ...categoriesData, hasMore } }); 
+
+        return res
+            .status(200)
+            .json({ category: { ...categoriesData, hasMore } });
     } catch (error) {
         return res.status(500).json({
-            message:  " Something went wrong! Please try again later"
+            message: "Something went wrong!! Please try again after sometime",
         });
     }
 };
