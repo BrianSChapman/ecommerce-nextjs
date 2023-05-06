@@ -5,7 +5,7 @@ import { TApiErrorResp, TApiSingleProductResp } from "../../../types";
 
 const getSingleProduct = async (
     req: NextApiRequest,
-    resp: NextApiResponse<TApiSingleProductResp | TApiErrorResp>
+    res: NextApiResponse<TApiSingleProductResp | TApiErrorResp>
 ) => {
     try {
         const title = req.query.title as string;
@@ -22,12 +22,12 @@ const getSingleProduct = async (
             },
         });
         if (!product) {
-            return resp.status(404).json({ message: `Product not found`});
+            return res.status(404).json({ message: `Product not found` });
         }
-        return resp.status(200).json({ product });
+        return res.status(200).json({ product });
     } catch (error) {
-        return resp.status(500).json({
-            message: "Something went wrong! Please try again."
+        return res.status(500).json({
+            message: "Something went wrong!! Please try again.",
         });
     }
 };

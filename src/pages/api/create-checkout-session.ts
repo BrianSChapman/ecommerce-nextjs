@@ -12,7 +12,7 @@ const checkoutSession = async (
         const host = req.headers.origin;
         const referer = req.headers.referer;
         const body = JSON.parse(req.body);
-        const formattedPrice = currency(body.price, {
+        const formatedPrice = currency(body.price, {
             precision: 2,
             symbol: "",
         }).multiply(100);
@@ -28,7 +28,7 @@ const checkoutSession = async (
                             images: [body.image],
                             description: body?.description,
                         },
-                        unit_amount_decimal: formattedPrice.toString(),
+                        unit_amount_decimal: formatedPrice.toString(),
                     },
                     quantity: 1,
                 },
@@ -39,7 +39,7 @@ const checkoutSession = async (
         return res.status(200).json({ id: session.id });
     } catch (error) {
         return res.status(500).json({
-            message: "Something went wrong!! Please try again after sometime",
+            message: "Something went wrong!! Please try again.",
         });
     }
 };
