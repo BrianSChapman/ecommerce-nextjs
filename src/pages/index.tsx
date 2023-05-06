@@ -17,7 +17,7 @@ const Home: NextPage = () => {
     };
 
     const { isLoading, data } = useQuery(
-        ["AllCateforiesWithProducts"],
+        ["AllCategoriesWithProducts"],
         getAllCategories
     );
 
