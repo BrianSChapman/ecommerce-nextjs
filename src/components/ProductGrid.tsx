@@ -60,7 +60,7 @@ const ProductGrid = (props: IProductGrid) => {
                                         {product.title}
                                     </h3>
                                     <p className="mt-1 text-sm text-gray-500">
-                                        {product.price}
+                                        ${product.price}
                                     </p>
                                 </div>
                                 <div className="mt-6">

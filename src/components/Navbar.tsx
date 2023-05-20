@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import React from "react";
 
 const Navbar = () => {
     return (
@@ -7,7 +8,7 @@ const Navbar = () => {
                 <div className="flex justify-start lg:w-0 lg:flex-1">
                     <h1 className="text-2xl">
                         <NextLink href="/" className="cursor-pointer">
-                            Ecomm App
+                            Random Product Round-Up
                         </NextLink>
                     </h1>
                 </div>

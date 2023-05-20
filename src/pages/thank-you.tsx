@@ -13,7 +13,7 @@ const ThankYou = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main className="container mx-auto">
+            <main className="container mx-auto bg-white dark:bg-slate-800">
                 <Navbar />
                 <div className="rounded-md bg-green-50 p-4 mt-8">
                     <div className="flex">
