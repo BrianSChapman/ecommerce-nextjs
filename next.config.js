@@ -3,12 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placeimg.com',
-      }
-    ]
+   domains: ['placeimg.com', 'pixabay.com', 'unsplash.com']
   },
 };
 
